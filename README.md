@@ -76,7 +76,7 @@
                   content
                </div>
             </html>
-            <script>document.getElementById('block').style.color = "blue"</script>
+            <script>document.getElementById('blog').style.color = "blue"</script>
 
 
 7. **Adendos**
