@@ -1,6 +1,6 @@
 from rest_framework.permissions import IsAuthenticated
 from core.permissions import IsOwnerOrReadOnly
-from .serializers import UserModelSerializer, UserDetailModelSerializer
+from .serializers import UserModelSerializer
 from django.contrib.auth import get_user_model
 from rest_framework import generics
 

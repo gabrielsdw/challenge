@@ -6,13 +6,10 @@ class LessonModelSerializer(ModelSerializer):
 
     class Meta:
         model = Lesson
-        fields = ['title', 'html_content']
+        fields = ['id', 'title', 'template_id', 'preferences']
 
-    """
-    def validate_title(self, data):
-        ...
-    """
-    """
-    def validate_html_content(self, data):
-        html_content    
-    """
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    def validate_preferences(self, value):
+        pass

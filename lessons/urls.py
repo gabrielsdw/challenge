@@ -1,6 +1,10 @@
 from django.urls import path
-from .views import LessonApiView
+from .views import LessonUpdateApiView, LessonCreateApiVIew
 
 urlpatterns = [
-    path('lessons/<int:pk>/html-edit/', LessonApiView.as_view(), name='lesson_update'),
+    path('lessons/', LessonCreateApiVIew.as_view(), name='lesson_create'),
+    path('lessons/<int:pk>/html-edit/', LessonUpdateApiView.as_view(), name='lesson_update'),
 ]
+
+
+
