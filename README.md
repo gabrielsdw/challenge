@@ -29,7 +29,7 @@
    Execute o comando abaixo para iniciar os serviços definidos no arquivo `docker-compose.yml`:
 
    ```bash
-   docker-compose up
+   docker-compose up --build
    ```
 
    Este comando irá baixar as imagens necessárias, criar os contêineres e iniciar os serviços configurados.
