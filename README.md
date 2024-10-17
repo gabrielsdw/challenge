@@ -39,13 +39,15 @@
    Após o `docker-compose` terminar de subir os contêineres, os serviços estarão disponíveis conforme as portas configuradas no `docker-compose.yml`. Verifique os logs para confirmar que tudo foi iniciado corretamente.
 
 
-5. **Documentação Postman**
+5. **Documentação Postman**:
+
    link: https://grey-station-179118.postman.co/workspace/f8775229-998d-455b-8f08-18adc28f9386/collection/30592972-91dfaa2f-ef4d-48a3-b997-b87208a09f7c
 
    Obs: A documentação também está presente no envio do email anexada como json.
 
 
-6. **Sobre a parte de edição do HTML**
+6. **Sobre a parte de edição do HTML**:
+
    Eis a explanação do caminho que tomei nessa parte mais ampla do desafio.
 
    A criação das lições (Lessons) são feitas a partir de um envio de o id de um template (Uma estrutura html), 
@@ -79,7 +81,8 @@
             <script>document.getElementById('blog').style.color = "blue"</script>
 
 
-7. **Adendos**
+7. **Adendos**:
+
    Ao rodar o docker-compose up, os seguintes usuários e Templates já são criados automaticamente:
 
       Usuários: 
