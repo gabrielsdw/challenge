@@ -39,6 +39,9 @@
    Após o `docker-compose` terminar de subir os contêineres, os serviços estarão disponíveis conforme as portas configuradas no `docker-compose.yml`. Verifique os logs para confirmar que tudo foi iniciado corretamente.
 
 
+## Mais informações
+
+
 5. **Documentação Postman**:
 
    link: https://grey-station-179118.postman.co/workspace/f8775229-998d-455b-8f08-18adc28f9386/collection/30592972-91dfaa2f-ef4d-48a3-b997-b87208a09f7c
@@ -57,13 +60,13 @@
       - As preferences são um campo de dados que recebem um dicionário com um element_id, propriety e um value, onde
       o element_id é uma tag html que está presente no html do template (um template pode ter mais de um lugar para fazer modificações), tal tag será modificada a partir de uma propriedade qualquer, como por exemplo: color, background-color, display com o seu respectivo valor (value).
 
-      Exemplo:
-         <html>
-            <div id="{{blog}}">
-               content
-            </div>
-         </html>
-         
+         Exemplo:
+            <html>
+               <div id="{{blog}}">
+                  content
+               </div>
+            </html>
+            
          request:
             "preferences": {
                "blog" {
