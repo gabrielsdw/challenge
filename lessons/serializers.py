@@ -4,25 +4,6 @@ from templates.models import Template
 from django.shortcuts import get_object_or_404
 
 
-
-class LessonModelSerializer(ModelSerializer):
-
-    class Meta:
-        model = Lesson
-        fields = ['id', 'title', 'template_id', 'preferences']
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-
-    
-    def validate_preferences(self, value):
-        return validate_preference(value, self.initial_data.get('template_id', 0))
-
-from rest_framework.serializers import ModelSerializer, ValidationError
-from .models import Lesson
-from templates.models import Template
-from django.shortcuts import get_object_or_404
-
 def validate_preference(value, template_id):
     # Busca o template usando o ID associado à lição
     template = get_object_or_404(Template, pk=template_id)
@@ -49,6 +30,21 @@ def validate_preference(value, template_id):
         del value[key]
                 
     return value
+
+
+class LessonModelSerializer(ModelSerializer):
+
+    class Meta:
+        model = Lesson
+        fields = ['id', 'title', 'template_id', 'preferences']
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    
+    def validate_preferences(self, value):
+        return validate_preference(value, self.initial_data.get('template_id', 0))
+
 
 class LessonUpdateModelSerializer(ModelSerializer):
 
