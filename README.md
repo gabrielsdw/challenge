@@ -63,10 +63,10 @@
          Exemplo:
             <html>
                <div id="{{blog}}">
-                  content
+                  Content
                </div>
             </html>
-            
+                        
          request:
             "preferences": {
                "blog" {
@@ -78,10 +78,9 @@
          resultado:
             <html>
                <div id="blog">
-                  content
+                  Content + document.getElementById('blog').style.color = "blue"
                </div>
             </html>
-            <script>document.getElementById('blog').style.color = "blue"</script>
 
 
 7. **Adendos**:
