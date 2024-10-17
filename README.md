@@ -20,10 +20,11 @@
    Certifique-se de que o Docker Desktop esteja aberto e rodando antes de executar o próximo passo. Caso contrário, podem ocorrer erros de conexão.
 
    Possivel erro se o docker desktop não estiver iniciado: 
-      error during connect: Get "http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/v1.46/containers/json?all=1&filters=%7B%22label%22%3A%7B%22com.docker.compose.config-hash%22%3Atrue%2C%22com.docker.compose.project%3Dchallenge%22%3Atrue%7D%7D": open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+      
+            error during connect: Get "http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/v1.46/containers/json?all=1&filters=%7B%22label%22%3A%7B%22com.docker.compose.config-      hash%22%3Atrue%2C%22com.docker.compose.project%3Dchallenge%22%3Atrue%7D%7D": open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
 
 
-3. **Suba o ambiente usando o Docker Compose**:
+4. **Suba o ambiente usando o Docker Compose**:
 
    Execute o comando abaixo para iniciar os serviços definidos no arquivo `docker-compose.yml`:
 
@@ -34,10 +35,14 @@
    Este comando irá baixar as imagens necessárias, criar os contêineres e iniciar os serviços configurados.
 
 
-4. **Acesse os serviços**:
+5. **Acesse os serviços**:
 
    Após o `docker-compose` terminar de subir os contêineres, os serviços estarão disponíveis conforme as portas configuradas no `docker-compose.yml`. Verifique os logs para confirmar que tudo foi iniciado corretamente.
 
+6. **Atenção!!!**:
+
+   Ao rodar o `docker-compose` é normal ficar aparecendo logs de erro bem no começo, pois em grande parte das vezes o container web sobe primeiro que o container do postgreSQL, apenas aguarde, porque o
+container web irá iniciar até que o db esteja pronto.
 
 ## Mais informações
 
