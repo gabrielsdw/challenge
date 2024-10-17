@@ -10,7 +10,8 @@ def search_element_ids_template(template):
 
 def fill_template_with_user_preferences(preferences, template):
     service = LessonTemplateService(template)
-
+    if not preferences:
+        return None
     template_edit = ''
     for key in preferences.keys():
         template_edit = service.modify_style_template(key, preferences[key]['property'], preferences[key]['value'])

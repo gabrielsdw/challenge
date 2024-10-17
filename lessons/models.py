@@ -10,10 +10,12 @@ class Lesson(models.Model):
     title = models.CharField(max_length=200)
     template_id  = models.IntegerField()
     html_content = models.TextField(null=True, blank=True)
-    preferences = models.JSONField(default=dict, blank=True)
+    preferences = models.JSONField(default=dict, blank=True, null=True)
 
     def save(self, *args, **kwargs):
-        self.html_content = fill_template_with_user_preferences(self.preferences, get_object_or_404(Template, pk=self.template_id).html_content)
+        content = fill_template_with_user_preferences(self.preferences, get_object_or_404(Template, pk=self.template_id).html_content)
+        if content is not None:
+            self.html_content = content
         return super().save(*args, **kwargs)
 
     def __str__(self):
