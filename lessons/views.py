@@ -1,6 +1,6 @@
 from .serializers import LessonModelSerializer, LessonUpdateModelSerializer
 from rest_framework.permissions import IsAuthenticated
-from core.permissions import IsOwnerOrReadOnly
+from core.permissions import IsOwnerOrReadOnlyLesson
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.generics import ListCreateAPIView, UpdateAPIView, RetrieveAPIView
 from .models import Lesson
@@ -27,13 +27,5 @@ class LessonListCreateApiView(ListCreateAPIView):
 
 class LessonUpdateApiView(UpdateAPIView):
     serializer_class = LessonUpdateModelSerializer
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnlyLesson]
     queryset = Lesson.objects.all()
-    
-    
-    def get_object(self):
-        lesson = super().get_object()
-        if lesson.user != self.request.user:
-            raise PermissionDenied("You do not have permission to edit this lesson.")
-        return lesson
-    
