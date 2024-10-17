@@ -41,8 +41,7 @@ class LessonModelSerializer(ModelSerializer):
 
     
     def validate_preferences(self, value):
-        template_id = self.instance.template_id
-        return validate_preference(value, template_id)
+        return validate_preference(value, self.initial_data.get('template_id', 0))
 
 
 class LessonUpdateModelSerializer(ModelSerializer):
