@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from .serializers import LessonModelSerializer
+from .serializers import LessonModelSerializer, LessonUpdateModelSerializer
 from rest_framework.permissions import IsAuthenticated
 from core.permissions import IsOwnerOrReadOnly
 from rest_framework.generics import CreateAPIView, UpdateAPIView
@@ -13,7 +13,7 @@ class LessonCreateApiVIew(CreateAPIView):
    
 
 class LessonUpdateApiView(UpdateAPIView):
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+    serializer_class = LessonUpdateModelSerializer
+    permission_classes = [IsAuthenticated]
     queryset = Lesson.objects.all()
-    serializer_class = LessonModelSerializer
     
