@@ -11,7 +11,7 @@ services:
   web:
     build: .
     restart: always
-    command: bash -c "python manage.py makemigrations users && python manage.py makemigrations lessons && python manage.py migrate lessons && python manage.py makemigrations && python manage.py migrate users && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations users && python manage.py makemigrations lessons && python manage.py makemigrations templates && python manage.py migrate templates && python manage.py migrate lessons && python manage.py makemigrations && python manage.py migrate users && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
