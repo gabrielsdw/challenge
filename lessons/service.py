@@ -1,4 +1,3 @@
-
 class LessonTemplateService:
 
     def __init__(self, template):

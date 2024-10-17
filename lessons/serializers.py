@@ -5,7 +5,6 @@ from django.shortcuts import get_object_or_404
 
 
 def validate_preference(value, template_id):
-    # Busca o template usando o ID associado à lição
     template = get_object_or_404(Template, pk=template_id)
     
     keys = list(value.keys()) if value else None
@@ -28,7 +27,6 @@ def validate_preference(value, template_id):
     
     for key in keys_to_remove:
         del value[key]
-                
     return value
 
 
@@ -43,7 +41,8 @@ class LessonModelSerializer(ModelSerializer):
 
     
     def validate_preferences(self, value):
-        return validate_preference(value, self.initial_data.get('template_id', 0))
+        template_id = self.instance.template_id
+        return validate_preference(value, template_id)
 
 
 class LessonUpdateModelSerializer(ModelSerializer):
@@ -53,6 +52,5 @@ class LessonUpdateModelSerializer(ModelSerializer):
         fields = ['preferences']
 
     def validate_preferences(self, value):
-        # Pega o template_id do objeto que está sendo atualizado
         template_id = self.instance.template_id
         return validate_preference(value, template_id)

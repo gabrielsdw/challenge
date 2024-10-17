@@ -13,7 +13,7 @@ class IsOwnerOrReadOnlyUser(BasePermission):
 
 class IsOwnerOrReadOnlyLesson(BasePermission):
     """
-    Permite que apenas o proprietário (usuário autenticado) possa editar ou deletar seus próprios dados.
+    Permite que apenas o proprietário (usuário autenticado) possa editar ou deletar os dados de suas próprias lessons.
     """
 
     def has_object_permission(self, request, view, obj):

@@ -1,7 +1,7 @@
 from django.db import models
+from templates.models import Template
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
-from templates.models import Template
 from core.utils import fill_template_with_user_preferences
 
 
